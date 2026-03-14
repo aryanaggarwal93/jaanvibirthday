@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Happy Birthday Jaanvi ❤️</title>
+
+<style>
+
+body{
+margin:0;
+font-family:'Segoe UI',sans-serif;
+background:radial-gradient(circle at top,#ff758c,#1a1a2e);
+color:white;
+text-align:center;
+overflow:hidden;
+}
+
+/* PAGES */
+
+.page{
+display:none;
+height:100vh;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+}
+
+.active{
+display:flex;
+}
+
+/* HEADINGS */
+
+h1{
+font-size:50px;
+letter-spacing:2px;
+text-shadow:0 0 20px rgba(255,255,255,0.4);
+}
+
+button{
+padding:15px 40px;
+font-size:20px;
+border:none;
+border-radius:40px;
+background:#ff004c;
+color:white;
+cursor:pointer;
+box-shadow:0 0 20px #ff004c;
+transition:.3s;
+}
+
+button:hover{
+transform:scale(1.1);
+}
+
+/* TYPEWRITER */
+
+.typewriter{
+font-size:30px;
+overflow:hidden;
+border-right:3px solid white;
+white-space:nowrap;
+animation:typing 4s steps(40,end),blink .7s infinite;
+}
+
+@keyframes typing{
+from{width:0}
+to{width:100%}
+}
+
+@keyframes blink{
+50%{border-color:transparent}
+}
+
+/* BALLOONS */
+
+.balloon{
+position:absolute;
+width:50px;
+height:70px;
+border-radius:50%;
+animation:float 8s infinite;
+}
+
+@keyframes float{
+0%{transform:translateY(100vh)}
+100%{transform:translateY(-200px)}
+}
+
+/* CONFETTI */
+
+.confetti{
+position:absolute;
+width:10px;
+height:10px;
+animation:fall 5s linear infinite;
+}
+
+@keyframes fall{
+0%{transform:translateY(-100px)}
+100%{transform:translateY(100vh)}
+}
+
+/* CAKE */
+
+.cake{
+width:220px;
+height:160px;
+background:#ffc46b;
+border-radius:20px;
+position:relative;
+margin:30px;
+box-shadow:0 10px 30px rgba(0,0,0,0.4);
+}
+
+.candle{
+width:15px;
+height:40px;
+background:white;
+position:absolute;
+top:-40px;
+left:50%;
+transform:translateX(-50%);
+}
+
+.flame{
+position:absolute;
+top:-60px;
+left:50%;
+transform:translateX(-50%);
+font-size:30px;
+}
+
+/* CUT EFFECT */
+
+.cut{
+animation:cut 0.6s ease;
+}
+
+@keyframes cut{
+0%{transform:scale(1)}
+50%{transform:scale(0.85)}
+100%{transform:scale(1)}
+}
+
+/* PHOTOS */
+
+.gallery{
+display:flex;
+gap:20px;
+flex-wrap:wrap;
+justify-content:center;
+}
+
+.gallery img{
+width:220px;
+border-radius:15px;
+box-shadow:0 10px 25px rgba(0,0,0,0.5);
+}
+
+/* FIREWORK */
+
+.firework{
+position:absolute;
+width:5px;
+height:5px;
+background:white;
+border-radius:50%;
+animation:explode 1s ease-out forwards;
+}
+
+@keyframes explode{
+0%{transform:scale(1)}
+100%{transform:scale(30);opacity:0}
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- PAGE 1 -->
+
+<div class="page active" id="page1">
+
+<h1>🎬 A Film For Jaanvi</h1>
+<p>Directed by Harsh ❤️</p>
+
+<button onclick="nextPage(2)">Start Movie</button>
+
+</div>
+
+<!-- PAGE 2 -->
+
+<div class="page" id="page2">
+
+<h1>Happy Birthday</h1>
+
+<div class="typewriter">My Beautiful Jaanvi ❤️</div>
+
+<br>
+
+<button onclick="decorate()">Decorate</button>
+
+<br><br>
+
+<button onclick="nextPage(3)">Next Scene</button>
+
+</div>
+
+<!-- PAGE 3 -->
+
+<div class="page" id="page3">
+
+<h1>🎂 Cake Cutting Scene</h1>
+
+<div class="cake" id="cake">
+
+<div class="candle"></div>
+<div class="flame">🔥</div>
+
+</div>
+
+<button onclick="cutCake()">Cut Cake</button>
+
+<br><br>
+
+<button onclick="nextPage(4)">Final Scene</button>
+
+<audio id="song" src="https://www2.cs.uic.edu/~i101/SoundFiles/HappyBirthday.mid"></audio>
+
+</div>
+
+<!-- PAGE 4 -->
+
+<div class="page" id="page4">
+
+<h1>Jaanvi ❤️</h1>
+
+<div class="gallery">
+
+<img src="photoharsh.jpeg">
+<img src="photoharsh2.jpeg">
+<img src="photoharsh3.jpeg">
+
+</div>
+
+<p style="width:70%;font-size:22px;margin-top:20px">
+
+Jaanvi,  
+You are the most beautiful chapter of my life.  
+Your smile is my favorite place.  
+Your voice is my peace.  
+
+And loving you is the best thing that ever happened to me.
+
+Happy Birthday My Love ❤️
+
+</p>
+
+<audio autoplay controls>
+
+<source src="songs.mp3.mp3" type="audio/mpeg">
+
+</audio>
+
+</div>
+
+<script>
+
+function nextPage(page){
+
+document.querySelectorAll(".page").forEach(p=>p.classList.remove("active"))
+
+document.getElementById("page"+page).classList.add("active")
+
+}
+
+/* DECORATION */
+
+function decorate(){
+
+for(let i=0;i<120;i++){
+
+let conf=document.createElement("div")
+
+conf.className="confetti"
+
+conf.style.left=Math.random()*100+"%"
+
+conf.style.background=`hsl(${Math.random()*360},100%,50%)`
+
+conf.style.animationDuration=(Math.random()*3+2)+"s"
+
+document.body.appendChild(conf)
+
+}
+
+for(let i=0;i<20;i++){
+
+let bal=document.createElement("div")
+
+bal.className="balloon"
+
+bal.style.left=Math.random()*100+"%"
+
+bal.style.background=`hsl(${Math.random()*360},80%,60%)`
+
+document.body.appendChild(bal)
+
+}
+
+}
+
+/* CAKE CUT */
+
+function cutCake(){
+
+document.getElementById("cake").classList.add("cut")
+
+document.getElementById("song").play()
+
+for(let i=0;i<20;i++){
+
+let fw=document.createElement("div")
+
+fw.className="firework"
+
+fw.style.left=Math.random()*100+"%"
+
+fw.style.top=Math.random()*100+"%"
+
+document.body.appendChild(fw)
+
+}
+
+}
+
+</script>
+
+</body>
+</html>
